@@ -1,10 +1,9 @@
-package net.redcrafter502.crafttechclient;
+package net.redcrafter502.crafttechclient
 
-import net.fabricmc.api.ModInitializer;
+import net.fabricmc.api.ModInitializer
 
-public class Crafttechclient implements ModInitializer {
-    @Override
-    public void onInitialize() {
+class Crafttechclient : ModInitializer {
+    override fun onInitialize() {
 
     }
 }
