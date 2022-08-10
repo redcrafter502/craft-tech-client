@@ -11,10 +11,6 @@ class CrafttechclientClient : ClientModInitializer {
     override fun onInitializeClient() {
         // Initialize Key Bindings
         KeyBindings.initialize()
-
-        // Initialize Zoom Variables
-        currentlyZoomed = false
-        originalSmoothCameraEnabled = false
     }
 
     companion object {
