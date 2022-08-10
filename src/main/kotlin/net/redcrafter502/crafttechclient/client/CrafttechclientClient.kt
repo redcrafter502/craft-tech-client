@@ -2,19 +2,15 @@ package net.redcrafter502.crafttechclient.client
 
 import net.fabricmc.api.EnvType
 import net.fabricmc.api.ClientModInitializer
-import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper
 import net.fabricmc.api.Environment
 import net.minecraft.client.MinecraftClient
-import net.minecraft.client.util.InputUtil
-import net.minecraft.client.option.KeyBinding
 
 @Environment(EnvType.CLIENT)
 class CrafttechclientClient : ClientModInitializer {
 
     override fun onInitializeClient() {
-        // Key Bindings
-        zoomKeyBinding = KeyBinding("key.crafttechclient.zoom", InputUtil.Type.KEYSYM, InputUtil.GLFW_KEY_C, "category.crafttechclient.zoom")
-        KeyBindingHelper.registerKeyBinding(zoomKeyBinding)
+        // Initialize Key Bindings
+        KeyBindings.initialize()
 
         // Initialize Zoom Variables
         currentlyZoomed = false
@@ -22,9 +18,6 @@ class CrafttechclientClient : ClientModInitializer {
     }
 
     companion object {
-        // Key Bindings
-        private lateinit var zoomKeyBinding: KeyBinding
-
         private var currentlyZoomed: Boolean = false
         private var originalSmoothCameraEnabled: Boolean = false
         private val mc: MinecraftClient = MinecraftClient.getInstance()
@@ -32,7 +25,7 @@ class CrafttechclientClient : ClientModInitializer {
         val zoomLevel: Double = 0.23
 
         fun isZooming(): Boolean {
-            return zoomKeyBinding.isPressed
+            return KeyBindings.zoomKeyBinding.isPressed
         }
 
         fun manageSmoothCamera() {
