@@ -1,6 +1,6 @@
 package net.redcrafter502.crafttechclient.mixin
 
-import net.redcrafter502.crafttechclient.client.CrafttechclientClient
+import net.redcrafter502.crafttechclient.client.Zoom
 
 import org.spongepowered.asm.mixin.Mixin
 import org.spongepowered.asm.mixin.injection.At
@@ -18,11 +18,11 @@ class CrafttechclientMixin {
 
     @Inject(method = ["getFov(Lnet/minecraft/client/render/Camera;FZ)D"], at = [At("RETURN")], cancellable = true)
     fun getZoomLevel(callbackInfo: CallbackInfoReturnable<Double>) {
-        if (CrafttechclientClient.isZooming()) {
+        if (Zoom.isZooming()) {
             val fov: Double = callbackInfo.returnValue
-            callbackInfo.returnValue = fov * CrafttechclientClient.zoomLevel
+            callbackInfo.returnValue = fov * Zoom.zoomLevel
         }
 
-        CrafttechclientClient.manageSmoothCamera()
+        Zoom.manageSmoothCamera()
     }
 }
