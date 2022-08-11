@@ -14,7 +14,7 @@ import net.minecraft.client.render.GameRenderer
 
 @Environment(EnvType.CLIENT)
 @Mixin(GameRenderer::class)
-class CrafttechclientMixin {
+class GameRendererMixin {
 
     @Inject(method = ["getFov(Lnet/minecraft/client/render/Camera;FZ)D"], at = [At("RETURN")], cancellable = true)
     fun getZoomLevel(callbackInfo: CallbackInfoReturnable<Double>) {

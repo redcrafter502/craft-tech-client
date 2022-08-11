@@ -6,7 +6,7 @@
   "mixins": [
   ],
   "client": [
-    "CrafttechclientMixin"
+    "GameRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
