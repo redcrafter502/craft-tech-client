@@ -22,7 +22,5 @@ class CrafttechclientMixin {
             val fov: Double = callbackInfo.returnValue
             callbackInfo.returnValue = fov * Zoom.zoomLevel
         }
-
-        Zoom.manageSmoothCamera()
     }
 }
