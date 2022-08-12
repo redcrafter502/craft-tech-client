@@ -9,9 +9,9 @@
   ],
   "contact": {
     "website": "Test-Website",
-    "repo": "Test-Repositor<"
+    "repo": "https://github.com/redcrafter502/craft-tech-client"
   },
-  "license": "unlicense",
+  "license": "Apache-2.0 license",
   "icon": "assets/crafttechclient/icon.png",
   "environment": "client",
   "entrypoints": {
