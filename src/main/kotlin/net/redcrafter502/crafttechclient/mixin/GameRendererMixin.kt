@@ -18,9 +18,6 @@ class GameRendererMixin {
 
     @Inject(method = ["getFov(Lnet/minecraft/client/render/Camera;FZ)D"], at = [At("RETURN")], cancellable = true)
     fun getZoomLevel(callbackInfo: CallbackInfoReturnable<Double>) {
-        if (Zoom.isZooming()) {
-            val fov: Double = callbackInfo.returnValue
-            callbackInfo.returnValue = fov * Zoom.zoomLevel
-        }
+        callbackInfo.returnValue = Zoom.changeFovBasedOnZoom(callbackInfo.returnValue)
     }
 }
