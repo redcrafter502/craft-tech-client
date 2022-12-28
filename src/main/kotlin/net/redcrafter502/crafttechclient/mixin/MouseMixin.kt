@@ -2,7 +2,7 @@ package net.redcrafter502.crafttechclient.mixin
 
 import net.fabricmc.api.EnvType
 import net.fabricmc.api.Environment
-import net.minecraft.entity.player.PlayerInventory
+import net.minecraft.client.Mouse
 import net.redcrafter502.crafttechclient.client.Zoom
 import org.spongepowered.asm.mixin.Mixin
 import org.spongepowered.asm.mixin.injection.At
@@ -10,12 +10,11 @@ import org.spongepowered.asm.mixin.injection.Inject
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo
 
 @Environment(EnvType.CLIENT)
-@Mixin(PlayerInventory::class)
-class PlayerInventoryMixin {
-    @Inject(method = ["scrollInHotbar(D)V"], at = [At("HEAD")], cancellable = true)
-    fun onScrollInHotbar(scrollAmount: Double, callbackInfo: CallbackInfo) {
-        if (Zoom.isZooming()) {
-            callbackInfo.cancel()
-        }
+@Mixin(Mouse::class)
+class MouseMixin {
+    @Inject(method = ["onMouseScroll(JDD)V"], at = [At("Return")])
+    fun onMouseScroll(long_1: Long, double_1: Double, double_2: Double, callbackInfo: CallbackInfo) {
+        println(double_2)
+        Zoom.onMouseScroll(double_2)
     }
 }
