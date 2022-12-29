@@ -14,7 +14,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo
 class MouseMixin {
     @Inject(method = ["onMouseScroll(JDD)V"], at = [At("Return")])
     fun onMouseScroll(long_1: Long, double_1: Double, double_2: Double, callbackInfo: CallbackInfo) {
-        println(double_2)
         Zoom.onMouseScroll(double_2)
     }
 }
