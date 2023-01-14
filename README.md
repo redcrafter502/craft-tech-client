@@ -1,5 +1,7 @@
 # Crafttechclient
 
+## The client is still in development!
+
 ## What is it good for?
 
 Crafttechclient is an open source Minecraft Client.
