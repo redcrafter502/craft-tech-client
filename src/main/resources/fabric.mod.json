@@ -26,8 +26,8 @@
     "crafttechclient.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.13.3",
+    "fabricloader": ">=0.15.11",
     "fabric": "*",
-    "minecraft": "1.19.4"
+    "minecraft": ">=1.21"
   }
 }
