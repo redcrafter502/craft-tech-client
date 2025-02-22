@@ -1,3 +1,4 @@
+# This project is archived because currently I am not working on it
 # Crafttechclient
 
 ## The client is still in development!
